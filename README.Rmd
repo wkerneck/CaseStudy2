@@ -1,6 +1,6 @@
 ---
 title: "2016-0509 MSDS 6304-401 Case Study 2"
-author: "Claire Chu, Chris Woodward, Jessica Wheeler, Bill Kerneckel"
+author: "Claire Chu, Chris Woodard, Jessica Wheeler, Bill Kerneckel"
 date: "July 7, 2016"
 output:
   html_document:

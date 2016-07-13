@@ -1,5 +1,5 @@
 # 2016-0509 MSDS 6304-401 Case Study 2
-Claire Chu, Chris Woodward, Jessica Wheeler, Bill Kerneckel  
+Claire Chu, Chris Woodard, Jessica Wheeler, Bill Kerneckel  
 July 7, 2016  
 
 <br>
