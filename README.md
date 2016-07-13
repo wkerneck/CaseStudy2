@@ -41,19 +41,19 @@ setwd("/Users/wkerneck/desktop/CaseStudy2/")
 
 - 1.0   [Preperation, import and convert data](#id-section1)
 - 1.1   [Import the exports data and the indicators](#id-section1.1)
-- 1.2   [Transformation the data into vectors and time series.](#id-section1.2)
+- 1.2   [Transformation the data into vectors and time series](#id-section1.2)
 
-- 2.0   [Analysis of the basic data.](#id-section2) 
-- 2.1   [Development of the business portfolio.](#id-section2.1)
-- 2.2   [Correlation between As Is and Plan data.](#id-section2.2)
-- 2.3   [Time series analysis.](#id-section2.3)
-- 2.3.1 ["stl" function.](#id-section2.3.1)
+- 2.0   [Analysis of the basic data](#id-section2) 
+- 2.1   [Development of the business portfolio](#id-section2.1)
+- 2.2   [Correlation between As Is and Plan data](#id-section2.2)
+- 2.3   [Time series analysis](#id-section2.3)
+- 2.3.1 ["stl" function](#id-section2.3.1)
 - 2.3.2 [Modification of the seasonal componant to a monthly base.](#id-section2.3.2)
 
-- 3.0 [Correlation of different external indicators .](#id-section3)
-- 3.1 [Definition of the indicators and their correlation with the basic data.](#id-section3.1)
+- 3.0 [Correlation of different external indicators](#id-section3)
+- 3.1 [Definition of the indicators and their correlation with the basic data](#id-section3.1)
   
-- 19.0  [Conclusion and Summary](#id-section19) 
+- 19.0  [Conclusion and Summary.](#id-section19) 
 - 20.0  [Acknowledgements](#id-section20) 
 
 ****************************
