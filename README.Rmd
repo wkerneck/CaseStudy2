@@ -41,6 +41,27 @@ setwd("/Users/wkerneck/desktop/CaseStudy2/")
 
 ****************************
 
+#### Table of Contents
+
+- 1.0   [Preperation, import and convert data](#id-section1)
+- 1.1   [Import the exports data and the indicators](#id-section1.1)
+- 1.2   [Transformation the data into vectors and time series.](#id-section1.2)
+
+- 2.0   [Analysis of the basic data.](#id-section2) 
+- 2.1   [Development of the business portfolio.](#id-section2.1)
+- 2.2   [Correlation between As Is and Plan data.](#id-section2.2)
+- 2.3   [Time series analysis.](#id-section2.3)
+- 2.3.1 ["stl" function.](#id-section2.3.1)
+- 2.3.2 [Modification of the seasonal componant to a monthly base.](#id-section2.3.2)
+
+- 3.0 [Correlation of different external indicators .](#id-section3)
+- 3.1 [Definition of the indicators and their correlation with the basic data.](#id-section3.1)
+  
+- 19.0  [Conclusion and Summary](#id-section19) 
+- 20.0  [Acknowledgements](#id-section20) 
+
+****************************
+<div id='id-section1'/>
 ####  1. Preperation, import and convert data
 
 The libraries listed below must be installed in order for the functions outlined in the steps below to execute. Load 'fpp' package in order to obtain the forecasting functions. Load 'tcltk' for pause function.
@@ -61,8 +82,9 @@ cat("Success: All libaries downloaded")
 ```
 
 
-****************************
 
+****************************
+<div id='id-section1.1'/>
 ####  1.1 Import the exports data and the indicators
 
 In order to test the script, it is necessary to change the three file paths. The files have been sent together with the script.
@@ -84,7 +106,7 @@ head(ImportedIndicators)
 ```
 
 ****************************
-
+<div id='id-section1.2'/>
 ####  1.2 Transformation the data into vectors and time series.
 
 In order to be able to work with the partial data sets later, these need to be split into individual vectors and converted into times series.
@@ -166,8 +188,9 @@ YearPlan
 TotalPlan_2014
 ```
 ****************************
+<div id='id-section2.0'/>
 #### 2. Analysis of the basic data  
-
+<div id='id-section2.1'/>
 #### 2.1 Development of the business portfolio
 
 Due to the different scales, it makes sense to plot each graph individually instead of plotting them all on one set of axes. 
@@ -196,13 +219,162 @@ mywait()
 ```
 
 ****************************
+<div id='id-section2.1'/>
+#### 2.1 Development of the business portfolio
+
+Test the correlation between As Is and Plan data in order to test how exact the planning is. Correlation is a measure of linear relationship between two variables. 
+
+```{r}
+cor(TotalAsIs, TotalPlan )
+cor(EfakAsIs , EfakPlan)
+cor(WugeAsIs, WugePlan)
+cor(TotalEtelAsIs, TotalEtelPlan)
+cor(BlueEtelAsIs , BlueEtelPlan)
+cor(RedEtelAsIs , RedEtelPlan)
+cor(YearAsIs, YearPlan)
+
+mywait()
+```
+
+The results show a very high planning accuracy
+
+```{r}
+TotalAsIs_lm <- lm(TotalAsIs ~ TotalPlan , data = TotalAsIs)
+summary(TotalAsIs_lm)
+
+TotalAsIs_tslm <- tslm(TotalAsIs ~ TotalPlan )
+summary(TotalAsIs_tslm)
+```
+
+****************************
+<div id='id-section2.3'/>
+#### 2.3 Time series analysis
+
+****************************
+<div id='id-section2.3.1'/>
+#### 2.3.1 "stl" function
+
+The time series can be analysed using the stl function in order to seperate the trend, seasonality and remainder (remaining coincidential) components from one another.
+
+```{r}
+TotalAsIs_stl <- stl(TotalAsIs, s.window=5)
+EfakAsIs_stl <- stl(EfakAsIs , s.window=5)
+WugeAsIs_stl <- stl(WugeAsIs, s.window=5)
+TotalEtelAsIs_stl <- stl(TotalEtelAsIs, s.window=5)
+BlueEtelAsIs_stl <- stl(BlueEtelAsIs , s.window=5)
+RedEtelAsIs_stl <- stl(RedEtelAsIs , s.window=5)
+```
+
+Thus the individual time series can be shown graphically and tabularly. The trend of the total exports is almost linear. A relatively uniform seaonality can be seen.
+
+```{r}
+par(mfrow=c(3,2))
+
+plot(TotalAsIs_stl, col="black", main="TotalAsIs_stl")
+TotalAsIs_stl
+```
+
+It is interesting to note that the almost linear trend is not seen in the individual segments. The individual trends run partially in opposite directions in the middle of the time scale, which causes the linear trend in the total As Is data.
+
+```{r}
+plot(EfakAsIs_stl, col="black", main="EfakAsIs_stl")
+EfakAsIs_stl
+
+plot(WugeAsIs_stl, col="black", main="WugeAsIs_stl")
+WugeAsIs_stl
+
+plot(TotalEtelAsIs_stl, col="black", main="TotalEtelAsIs_stl")
+TotalEtelAsIs_stl
+
+plot(BlueEtelAsIs_stl, col="black", main="BlueEtelAsIs_stl")
+BlueEtelAsIs_stl
+
+plot(RedEtelAsIs_stl, col="black", main="RedEtelAsIs_stl")
+RedEtelAsIs_stl
+
+mywait()
+
+par(mfrow=c(3,2))
+
+plot(TotalAsIs_stl$time.series[,"trend"], col="black")
+plot(EfakAsIs_stl$time.series[,"trend"], col="red")
+plot(WugeAsIs_stl$time.series[,"trend"], col="blue")
+plot(TotalEtelAsIs_stl$time.series[,"trend"], col="green")
+plot(BlueEtelAsIs_stl$time.series[,"trend"], col="orange")
+plot(RedEtelAsIs_stl$time.series[,"trend"], col="purple")
+
+mywait()
+```
+
+****************************
+<div id='id-section2.3.2'/>
+#### 2.3.2 Modification of the seasonal componant to a monthly base
+
+The modification of the seasonlity component can also be changed into a monthly view. It only makes sense to do this if the seasonality componant as the trend looks almost identical and the remainder is then randomly spread. 
+
+```{r}
+monthplot(TotalAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+monthplot(EfakAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+monthplot(WugeAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+monthplot(TotalEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+monthplot(BlueEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+monthplot(RedEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+
+mywait()
+```
+
+****************************
+<div id='id-section3'/>
+#### 3 Correlation of different external indicators
+
+****************************
+<div id='id-section3.1'/>
+#### 3.1 Definition of the indicators and their correlation with the basic data
+
+The following indicators are to be tested:
+
+1   Monthly Change in Export Price Index (CEPI)
+2 	Monthly Satisfaction Index (SI) government based data
+3 	Average monthly temperatures in Chulwalar
+4 	Monthly births in Chulwalar
+5 	Monthly Satisfaction Index (SI) external index 
+6 	Yearly Exports from Urbano
+7 	Yearly number of Globalisation Party members in Chulwalar
+8 	Monthly Average Export Price Index for Chulwalar
+9 	Monthly Producer Price Index (PPI) for Etel in Chulwalar
+10 	National Holidays
+11 	Chulwalar Index (Total value of all companies in Chulwalar)
+12	Monthly Inflation rate in Chulwalar
+13	Proposed spending for National Holidays
+14    Influence of National Holiday
+
+The indicators will be converted into individual  vectors and subsequently converted into time series. The correlation of the indicators will then be tested against the As Is exports for Chulwalar. 
+
+Monthly Change in Export Price Index (CEPI)
+
+```{r}
+CEPIVector <- c(ImportedIndicators[2:13,2],ImportedIndicators[2:13,3],ImportedIndicators[2:13,4],ImportedIndicators[2:13,5],ImportedIndicators[2:13,6],ImportedIndicators[2:13,7])
+CEPI <- ts(CEPIVector , start=c(2008,1), end=c(2013,12), frequency=12)
+plot(CEPI, main="CEPI")
+
+cor(TotalAsIs, CEPI)
+cor(EfakAsIs , CEPI)
+cor(WugeAsIs, CEPI)
+cor(TotalEtelAsIs, CEPI)
+cor(BlueEtelAsIs , CEPI)
+cor(RedEtelAsIs , CEPI)
+
+mywait()
+```
+****************************
+<div id='id-section19'/>
 #### Conclusion and Summary
 
 
 
 
 ****************************
-
+<div id='id-section20'/>
 #### Acknowledgements
 
 Planning and forecasting in a volatile setting: the Chulwalar case v0.8alpha        
