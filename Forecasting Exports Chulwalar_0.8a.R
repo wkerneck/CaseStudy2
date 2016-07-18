@@ -7,7 +7,7 @@
 #        Amy Wheeler, Nina Weitkamp, Patrick Berlekamp, Johannes Brauer,        #
 #                     Andreas Faatz, Hans-Ulrich Holst                          #
 #                                                                               #
-#             designed and coded at Hochschule Osnabrück, Germany               #
+#             designed and coded at Hochschule Osnabr?ck, Germany               #
 #                     contact: faatz@wi.hs-osnabrueck.de                        #
 #                                                                               #
 #      thanks to: Rob Hyndman for all the lovely forecasting libraries in R     #                                        
@@ -396,7 +396,7 @@ mywait()
 
 # The following indicators are to be tested:
 #
-#     1     Monthly Change in Export Price Index (CEPI)
+#   1     Monthly Change in Export Price Index (CEPI)
 #  	2 	Monthly Satisfaction Index (SI) government based data
 #  	3 	Average monthly temperatures in Chulwalar
 #  	4 	Monthly births in Chulwalar
@@ -778,87 +778,87 @@ mywait()
 # All Indiators in one model:
 ModelWithAlllIndicators <- tslm(TotalAsIs ~ trend + season + CEPI + SIGov + Temperature + Births + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI + PPIEtel + NationalHolidays + ChulwalarIndex + Inflation + IndependenceDayPresents)
 summary(ModelWithAlllIndicators)
-# Adjusted R²: 0.9106
+# Adjusted R?: 0.9106
 
 # CEPI:
-# The CEPI Indicator correlated best with total exports. Indeed the multiple R² 
+# The CEPI Indicator correlated best with total exports. Indeed the multiple R? 
 # improved the model slighltly compared to the simple ModelWithTrendAndSeasonalityOnly 
-# However the adjusted R² remains the same.
+# However the adjusted R? remains the same.
 ModelWithCEPI <- tslm(TotalAsIs ~ trend + season + CEPI)
 summary(ModelWithCEPI)    
-# Adjusted R²: 0.9004
+# Adjusted R?: 0.9004
 
 # SIGov:
 # The Satisfaction Index (gov)  hardly changes the function of the model.
 ModelWithSIGov <- tslm(TotalAsIs ~ trend + season + SIGov)
 summary(ModelWithSIGov)    
-# Adjusted R²: 0.8994
+# Adjusted R?: 0.8994
 
 # Temperature:
 ModelWithTemperature <- tslm(TotalAsIs ~ trend + season + Temperature)
 summary(ModelWithTemperature)
-# Adjusted R²: 0.8993 
+# Adjusted R?: 0.8993 
 
 # Births:
 ModelWithBirths <- tslm(TotalAsIs ~ trend + season + Births)
 summary(ModelWithBirths) 
-# Adjusted R²: 0.9088 
+# Adjusted R?: 0.9088 
 
 # SIExtern:
 ModelWithSIExtern <- tslm(TotalAsIs ~ trend + season + SIExtern)
 summary(ModelWithSIExtern) 
-# Adjusted R²: 0.8998 
+# Adjusted R?: 0.8998 
 
 # UrbanoExports:
-# Indicator with adjusted R² shows a better result than the reference model (ModelWithTrendAndSeasonalityOnly).
+# Indicator with adjusted R? shows a better result than the reference model (ModelWithTrendAndSeasonalityOnly).
 # The individual months are also very significant.
 ModelWithTotalUrbanoExports <- tslm(TotalAsIs ~ trend + season + UrbanoExports)
 summary(ModelWithTotalUrbanoExports) 
-# Adjusted R²: 0.9005 
+# Adjusted R?: 0.9005 
 
 # GlobalisationPartyMembers:
 ModelWithGlobalisationPartyMembers <- tslm(TotalAsIs ~ trend + season + GlobalisationPartyMembers)
 summary(ModelWithGlobalisationPartyMembers) 
-# Adjusted R²: 0.8991 
+# Adjusted R?: 0.8991 
 
 # AEPI:
 ModelWithAEPI <- tslm(TotalAsIs ~ trend + season + AEPI)
 summary(ModelWithAEPI) 
-# Adjusted R²: 0.8999
+# Adjusted R?: 0.8999
 
 # PPIEtel:
 ModelWithPPIEtel <- tslm(TotalAsIs ~ trend + season + PPIEtel)
 summary(ModelWithPPIEtel)
-# Adjusted R²: 0.9003 
+# Adjusted R?: 0.9003 
 
 # NationalHolidays:
-# Indicator with the best adjusted R². The months remain very significant and the indicator
+# Indicator with the best adjusted R?. The months remain very significant and the indicator
 # itself has a p-value of 0,00636**
 ModelWithNationalHolidays <- tslm(TotalAsIs ~ trend + season + NationalHolidays)
 summary(ModelWithNationalHolidays)
-# Adjusted R²: 0.9110 
+# Adjusted R?: 0.9110 
 
 # ChulwalarIndex:
 ModelWithChulwalarIndex <- tslm(TotalAsIs ~ trend + season + ChulwalarIndex)
 summary(ModelWithChulwalarIndex) 
-# Adjusted R²: 0.9001
+# Adjusted R?: 0.9001
 
 # Inflation:
 ModelWithInflation <- tslm(TotalAsIs ~ trend + season + Inflation)
 summary(ModelWithInflation)
-# Adjusted R²: 0.8989
+# Adjusted R?: 0.8989
 
 # IndependenceDayPresents:
 ModelWithIndependenceDayPresents <- tslm(TotalAsIs ~ trend + season + IndependenceDayPresents)
 summary(ModelWithIndependenceDayPresents)
-# Adjusted R²: 0.8993
+# Adjusted R?: 0.8993
 
 # InfluenceNationalHolidays:
-# Indicator with the best adjusted R². The months remain very significant and the indicator
+# Indicator with the best adjusted R?. The months remain very significant and the indicator
 # itself has a p-value of 0,00636**
 ModelWithInfluenceNationalHolidays <- tslm(TotalAsIs ~ trend + season + InfluenceNationalHolidays)
 summary(ModelWithInfluenceNationalHolidays)
-# Adjusted R²: 0.9110 
+# Adjusted R?: 0.9110 
 
 #################################################################################
 #  4.2.1 ModelWithHighCorrelatingIndicators                                     #
@@ -870,7 +870,7 @@ IndicatorsCorrelationCoefficientMatrix
 
 ModelWithHighCorrelatingIndicators <- tslm(TotalAsIs ~ trend + season + CEPI + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI)
 summary(ModelWithHighCorrelatingIndicators) 
-# Adjusted R²: 0,8941
+# Adjusted R?: 0,8941
 # It can be seen that the addition of these indicators causes the seasonality to be weakened. 
 # The individual indicators are not very significant either. 
 # Is this a multicollinearity effect? Or is it just because we have chose irrelevant indicators? 
@@ -886,7 +886,7 @@ IndicatorsCorrelationCoefficientMatrix
 
 ModelWithLowCorrelatingIndicators <- tslm(TotalAsIs ~ trend + season + NationalHolidays + UrbanoExports + GlobalisationPartyMembers)
 summary(ModelWithLowCorrelatingIndicators) 
-# Adjusted R²: 0.9097
+# Adjusted R?: 0.9097
 # It can be seen that the addition of these indicators causes the seasonality to be weakened. 
 # The individual indicators are not very significant either. Thus we should continue with
 # trend and *seasonality*; the comparison of 4.3 and 4.4 confirms this:  
@@ -897,7 +897,7 @@ summary(ModelWithLowCorrelatingIndicators)
 
 ModelWithTrendAndSeasonalityOnly <- tslm(TotalAsIs ~ trend + season)
 summary(ModelWithTrendAndSeasonalityOnly)
-# Adjusted R²: 0,9004
+# Adjusted R?: 0,9004
 # Remains one of the best models when looking at total exports.
 
 #################################################################################
@@ -906,32 +906,32 @@ summary(ModelWithTrendAndSeasonalityOnly)
 
 ModelWithoutTrendAndSeasonality <- tslm(TotalAsIs ~ CEPI + SIExtern + UrbanoExports + GlobalisationPartyMembers + AEPI)
 summary(ModelWithoutTrendAndSeasonality)
-# Adjusted R²: 0,415
+# Adjusted R?: 0,415
 
 #################################################################################
 #  4.5 ModelWithEfakExportsIndicators                                           #
 #################################################################################
 
 # ModelWithEfakExportsIndicators will be matched with a set of indicators that correlate with the Efak exports.
-# The adjusted R² has the best value. However the diffent months and indicators are not significant apart from 
+# The adjusted R? has the best value. However the diffent months and indicators are not significant apart from 
 # GlobaliationPartyMembers. When testing the forecasts based on this model it generated unrealistic exports which were 
 # much higher than the As Is data.
 ModelWithEfakExportsIndicators <- tslm(EfakAsIs  ~ trend + season + CEPI + UrbanoExports + AEPI + GlobalisationPartyMembers)
 summary(ModelWithEfakExportsIndicators)
-# Adjusted R²: 0,923
+# Adjusted R?: 0,923
 
 ModelEfakSalesWithCEPI <- tslm(EfakAsIs  ~ trend + season + CEPI)
 summary(ModelEfakSalesWithCEPI)
-# Adjusted R²: 0,9125
+# Adjusted R?: 0,9125
 
 # ModelEfakSalesWithTrendAnsSeasonalityOnly does not seem to be anything special, but it returns fairly good results.
 ModelEfakSalesWithTrendAnsSeasonalityOnly <- tslm(EfakAsIs  ~ trend + season)
 summary(ModelEfakSalesWithTrendAnsSeasonalityOnly)
-# Adjusted R²: 0,8881
+# Adjusted R?: 0,8881
 
 ModelWithCEPIOnly <- tslm(EfakAsIs  ~ CEPI)
 summary(ModelWithCEPIOnly)
-# Adjusted R²: 0,8636
+# Adjusted R?: 0,8636
 # A Forecast based entirely on the CEPI is not convincing.
 
 #################################################################################
@@ -944,15 +944,15 @@ summary(ModelWithCEPIOnly)
 
 ModelWithWugeExportsIndicators <- tslm(WugeAsIs ~ trend + season + CEPI + UrbanoExports + AEPI)
 summary(ModelWithWugeExportsIndicators)
-# Adjusted R²: 0,8758
+# Adjusted R?: 0,8758
 
 ModelWugeWithCEPI <- tslm(WugeAsIs ~ trend + season + CEPI)
 summary(ModelWugeWithCEPI)
-# Adjusted R²: 0,8771
+# Adjusted R?: 0,8771
 
 ModelWugeWithTrendAndSeasonalityOnly <- tslm(WugeAsIs ~ trend + season)
 summary(ModelWugeWithTrendAndSeasonalityOnly)
-# Adjusted R²: 0,8789
+# Adjusted R?: 0,8789
 
 #################################################################################
 #  4.7 ModelTotalEtel                                                            #
@@ -962,15 +962,15 @@ summary(ModelWugeWithTrendAndSeasonalityOnly)
 # to improve the model by adding Temperature showed no improvement worth mentioning.  
 ModelTotalEtel <- tslm(TotalEtelAsIs~ trend + season)
 summary(ModelTotalEtel)
-# Adjusted R²: 0,8683
+# Adjusted R?: 0,8683
 
 ModelBlueEtel <- tslm(BlueEtelAsIs  ~ trend + season)
 summary(ModelBlueEtel)
-# Adjusted R²: 0,6937
+# Adjusted R?: 0,6937
 
 ModelRedEtel <- tslm(RedEtelAsIs  ~ trend + season)
 summary(ModelRedEtel)
-# Adjusted R²: 0,85
+# Adjusted R?: 0,85
 
 #################################################################################
 ###                                                                           ###
@@ -2029,14 +2029,14 @@ kappasFor3CombinedIndicators[with(kappasFor3CombinedIndicators, order(allkappa))
 # 1. Inflation and NationalHolidays
 ModelWithInflationAndNationalHolidays <- tslm(TotalAsIs ~ trend + season + Inflation + NationalHolidays)
 summary(ModelWithInflationAndNationalHolidays)
-# Adjusted R²: 0.9099
+# Adjusted R?: 0.9099
 
 # 2. Seasonality and Trend only (as comparison to 1.)
 ModelWithTrendAndSeasonalityOnly <- tslm(TotalAsIs  ~ trend + season)
 summary(ModelWithTrendAndSeasonalityOnly)
-# Adjusted R²: 0,9004
+# Adjusted R?: 0,9004
 
-# The Adjusted R² for ModelWithTrendAndSeasonalityOnly was 0,9004, hence the value for "Inflation and NationalHolidays", 
+# The Adjusted R? for ModelWithTrendAndSeasonalityOnly was 0,9004, hence the value for "Inflation and NationalHolidays", 
 # is slightly better.
 # We will forecast with the model and then compare 
 # to the AsIs and Plan data for 2013.
@@ -2111,7 +2111,7 @@ summary(TotalAsIs_2013_lm)
 
 # AsIs Data for 2013
 # summary(TotalAsIs_2013_lm)
-# Adjusted R²: 0.8509
+# Adjusted R?: 0.8509
 
 # ModelWithInflationAndNationalHolidays 
 # 
@@ -2120,7 +2120,7 @@ summary(TotalAsIs_2013_lm)
 # cor(TotalAsIs_2013, TotalPlan_2013)
 # [1] 0.929769
 
-# Adjusted R²: 0.9135 
+# Adjusted R?: 0.9135 
 
 
 # ModelwithTrendAndSeasonalityOnly
@@ -2130,7 +2130,7 @@ summary(TotalAsIs_2013_lm)
 # cor(TotalAsIs_2013, TotalPlan_2013)
 # [1] 0.929769
 
-# Adjusted R²: 0.8185
+# Adjusted R?: 0.8185
 
 # The better model is ModelWithInflationAndNationalHolidays. It finally outperforms the plan data and provides explanatory potential.
 
