@@ -1,16 +1,9 @@
----
-title: "2016-0509 MSDS 6304-401 Case Study 2 - Data Import"
-author: "Claire Chu, Chris Woodard, Jessica Wheeler, Bill Kerneckel"
-date: "July 19, 2016"
-output:
-  html_document:
-    keep_md: yes
----
+# 2016-0509 MSDS 6304-401 Case Study 2 - Data Import
+Claire Chu, Chris Woodard, Jessica Wheeler, Bill Kerneckel  
+July 19, 2016  
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 [I'm a relative reference to a repository file](../wkerneck/casestudy2/)
 
