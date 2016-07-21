@@ -1,0 +1,120 @@
+---
+title: "Analysis of the basic data"
+author: "Nathan Mowat Chris Woodard, Jessica Wheeler, Bill Kerneckel"
+date: "July 7, 2016"
+output:
+  html_document:
+    keep_md: yes
+---
+
+
+
+****************************
+
+#### Table of Contents
+
+[Back to Home](https://github.com/wkerneck/CaseStudy2)
+
+* 2.0   [Analysis of the basic data](#id-section2)
+* 2.1   [Development of the business portfolio](#id-section2.1)
+* 1.2   [Transformation the data into vectors and time series](#id-section1.2)
+
+
+```{r echo=FALSE}
+setwd("/Users/wkerneck/desktop/CaseStudy2/")
+```
+
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+library(fpp)
+library(tcltk)
+mywait <- function() {
+    tt <- tktoplevel()
+    tkpack( tkbutton(tt, text='Continue', command=function()tkdestroy(tt)),
+        side='bottom')
+    tkbind(tt,'<Key>', function()tkdestroy(tt) )
+
+    tkwait.window(tt)
+}
+
+ImportedAsIsData <- read.csv("ImportedAsIsDataChulwalar.csv", header = F, sep=";", fill = T)
+ImportedPlanData <- read.csv("ImportedPlanDataChulwalar.csv", header = F, sep=";", fill = T)
+ImportedIndicators <- read.csv("ImportedIndicatorsChulwalar.csv", header = F, sep=";", fill = T)
+ImportedAsIsData <- read.csv("ImportedAsIsDataChulwalar.csv", header = F, sep=";", fill = T)
+ImportedPlanData <- read.csv("ImportedPlanDataChulwalar.csv", header = F, sep=";", fill = T)
+ImportedIndicators <- read.csv("ImportedIndicatorsChulwalar.csv", header = F, sep=";", fill = T)
+RedEtelAsIsVector <- c(ImportedAsIsData [72:83,2],ImportedAsIsData [72:83,3],ImportedAsIsData [72:83,4],ImportedAsIsData [72:83,5],ImportedAsIsData [72:83,6],ImportedAsIsData [72:83,7])
+RedEtelPlanVector <- c(ImportedPlanData[72:83,2],ImportedPlanData[72:83,3],ImportedPlanData[72:83,4],ImportedPlanData[72:83,5],ImportedPlanData[72:83,6],ImportedPlanData[72:83,7])
+RedEtelAsIs <- ts(RedEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
+RedEtelPlan <- ts(RedEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
+```
+
+
+
+****************************
+<div id='id-section2.0'/>
+#### 2. Analysis of the basic data  
+<div id='id-section2.1'/>
+#### 2.1 Development of the business portfolio
+
+Due to the different scales, it makes sense to plot each graph individually instead of plotting them all on one set of axes. 
+
+```{r}
+par(mfrow=c(2,1))
+plot(RedEtelAsIs, col="red", main="RedEtelAsIs")
+plot(RedEtelPlan, col="red", main="RedEtelPlan")
+
+mywait()
+```
+
+****************************
+<div id='id-section2.2'/>
+####  2.2 Correlation between As Is and Plan data                                  
+
+Test the correlation between As Is and Plan data in order to test how exact the planning is. Correlation is a measure of linear relationship between two variables. 
+
+```{r}
+
+cor(RedEtelAsIs , RedEtelPlan)
+mywait()
+```
+
+****************************
+<div id='id-section2.2'/>
+#### 2.3 Time series analysis                                                     
+
+****************************
+<div id='id-section2.2'/>
+#### 2.3.1 "stl" function                                                         
+
+The time series can be analysed using the stl function in order to seperate the trend, seasonality and remainder (remaining coincidential) components from one another.
+
+```{r}
+RedEtelAsIs_stl <- stl(RedEtelAsIs , s.window=5)
+```
+
+Thus the individual time series can be shown graphically and tabularly.The trend of the total exports is almost linear. A relatively uniform seaonality can be seen. It is interesting to note that the almost linear trend is not seen in the individual segments. The individual trends run partially in opposite directions in the middle of the time scale, which causes the linear trend in the total As Is data.
+
+```{r}
+plot(RedEtelAsIs_stl, col="black", main="RedEtelAsIs_stl")
+RedEtelAsIs_stl
+
+mywait()
+par(mfrow=c(3,2))
+
+
+plot(RedEtelAsIs_stl$time.series[,"trend"], col="red")
+mywait()
+```
+
+****************************
+<div id='id-section2.3'/>
+
+#### 2.3.2 Modification of the seasonal componant to a monthly base       
+
+The modification of the seasonlity component can also be changed into a monthly view. It only makes sense to do this if the seasonality componant as the trend looks almost identical and the remainder is then randomly spread. 
+
+```{r}
+monthplot(RedEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+
+mywait()
+```
