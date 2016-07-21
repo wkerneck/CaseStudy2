@@ -41,9 +41,9 @@ Choose one of the flowers from the data provided and complete the following anal
 
 #### Table of Contents
 
-* 1.0   [Preperation, import and convert data](https://github.com/wkerneck/CaseStudy2/analysis/data/1.md)
-* 1.1   [Import the exports data and the indicators](#id-section1.1)
-* 1.2   [Transformation the data into vectors and time series](#id-section1.2)
+* 1.0   [Preperation, import and convert data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
+* 1.1   [Import the exports data and the indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
+* 1.2   [Transformation the data into vectors and time series](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
 
 * 2.0   [Analysis of the basic data](#id-section2) 
 * 2.1   [Development of the business portfolio](#id-section2.1)
