@@ -13,7 +13,7 @@ output:
 
 #### Table of Contents
 
-[< - Back to Home]("https://github.com/wkerneck/CaseStudy2")
+[Back to Home]("https://github.com/wkerneck/CaseStudy2")
 
 * 1.0   [Preperation, import and convert data](#id-section1)
 * 1.1   [Import the exports data and the indicators](#id-section1.1)
