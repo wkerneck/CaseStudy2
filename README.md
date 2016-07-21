@@ -45,15 +45,15 @@ Choose one of the flowers from the data provided and complete the following anal
 * 1.1   [Import the exports data and the indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
 * 1.2   [Transformation the data into vectors and time series](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
 
-* 2.0   [Analysis of the basic data](#id-section2) 
-* 2.1   [Development of the business portfolio](#id-section2.1)
-* 2.2   [Correlation between As Is and Plan data](#id-section2.2)
-* 2.3   [Time series analysis](#id-section2.3)
-* 2.3.1 ["stl" function](#id-section2.3.1)
-* 2.3.2 [Modification of the seasonal componant to a monthly base.](#id-section2.3.2)
+* 2.0   [Analysis of the basic data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md) 
+* 2.1   [Development of the business portfolio](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.2   [Correlation between As Is and Plan data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.3   [Time series analysis](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.3.1 ["stl" function](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.3.2 [Modification of the seasonal componant to a monthly base.](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
 
-* 3.0 [Correlation of different external indicators](#id-section3)
-* 3.1 [Definition of the indicators and their correlation with the basic data](#id-section3.1)
+* 3.0 [Correlation of different external indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
+* 3.1 [Definition of the indicators and their correlation with the basic data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
   
 * 19.0  [Conclusion and Summary.](#id-section19) 
 * 20.0  [Acknowledgements](#id-section20) 

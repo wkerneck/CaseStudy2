@@ -40,25 +40,25 @@ Choose one of the flowers from the data provided and complete the following anal
 
 - Give a conclusion of your analysis as far as forecasting exports for Chulwalar
 
-- For this project, we will be forecasting the "RedEtel" flower exports for Chulwalar. 
+- For this project, we will be forecasting the "<font color="red">RedEtel</font>" flower exports for Chulwalar. 
 
 ****************************
 
 #### Table of Contents
 
-* 1.0   [Preperation, import and convert data](#id-section1)
-* 1.1   [Import the exports data and the indicators](#id-section1.1)
-* 1.2   [Transformation the data into vectors and time series](#id-section1.2)
+* 1.0   [Preperation, import and convert data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
+* 1.1   [Import the exports data and the indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
+* 1.2   [Transformation the data into vectors and time series](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
 
-* 2.0   [Analysis of the basic data](#id-section2) 
-* 2.1   [Development of the business portfolio](#id-section2.1)
-* 2.2   [Correlation between As Is and Plan data](#id-section2.2)
-* 2.3   [Time series analysis](#id-section2.3)
-* 2.3.1 ["stl" function](#id-section2.3.1)
-* 2.3.2 [Modification of the seasonal componant to a monthly base.](#id-section2.3.2)
+* 2.0   [Analysis of the basic data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md) 
+* 2.1   [Development of the business portfolio](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.2   [Correlation between As Is and Plan data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.3   [Time series analysis](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.3.1 ["stl" function](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
+* 2.3.2 [Modification of the seasonal componant to a monthly base.](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
 
-* 3.0 [Correlation of different external indicators](#id-section3)
-* 3.1 [Definition of the indicators and their correlation with the basic data](#id-section3.1)
+* 3.0 [Correlation of different external indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
+* 3.1 [Definition of the indicators and their correlation with the basic data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
   
 * 19.0  [Conclusion and Summary.](#id-section19) 
 * 20.0  [Acknowledgements](#id-section20) 
@@ -92,185 +92,3 @@ cat("Success: All libaries downloaded")
 ```
 
 
-****************************
-
-<div id='id-section1.1'/>
-####  1.1 Import the exports data and the indicators
-
-In order to test the script, it is necessary to change the three file paths. The files have been sent together with the script.
-
-- The Export data for Chulwalar   are in two .csv files.
-- One file for the as is data: ImportedAsIsDataChulwalar.csv
-- and another one for the plan data: ImportedPlanDataChulwalar.csv
-
-```{r}
-ImportedAsIsData <- read.csv("ImportedAsIsDataChulwalar.csv", header = F, sep=";", fill = T)
-
-ImportedPlanData <- read.csv("ImportedPlanDataChulwalar.csv", header = F, sep=";", fill = T)
-
-ImportedIndicators <- read.csv("ImportedIndicatorsChulwalar.csv", header = F, sep=";", fill = T)
-
-head(ImportedAsIsData)
-head(ImportedPlanData)
-head(ImportedIndicators)
-```
-
-****************************
-<div id='id-section1.2'/>
-####  1.2 Transformation the data into vectors and time series.
-
-In order to be able to work with the partial data sets later, these need to be split into individual vectors and converted into times series.
-
-```{r}
-RedEtelAsIsVector <- c(ImportedAsIsData [72:83,2],ImportedAsIsData [72:83,3],ImportedAsIsData [72:83,4],ImportedAsIsData [72:83,5],ImportedAsIsData [72:83,6],ImportedAsIsData [72:83,7])
-RedEtelPlanVector <- c(ImportedPlanData[72:83,2],ImportedPlanData[72:83,3],ImportedPlanData[72:83,4],ImportedPlanData[72:83,5],ImportedPlanData[72:83,6],ImportedPlanData[72:83,7])
-```
-
-The data is saved as a vector and needs to be converted into a time series.
-
-```{r}
-
-RedEtelAsIs <- ts(RedEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
-RedEtelPlan <- ts(RedEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
-
-```
-
-Call up the time series to check everything has worked.
-
-```{R}
-
-RedEtelAsIs 
-RedEtelPlan
-
-```
-****************************
-<div id='id-section2.0'/>
-#### 2. Analysis of the basic data  
-<div id='id-section2.1'/>
-#### 2.1 Development of the business portfolio
-
-Due to the different scales, it makes sense to plot each graph individually instead of plotting them all on one set of axes. 
-
-```{r}
-par(mfrow=c(2,1))
-plot(RedEtelAsIs, col="red", main="RedEtelAsIs")
-plot(RedEtelPlan, col="red", main="RedEtelPlan")
-
-mywait()
-```
-
-****************************
-<div id='id-section2.1'/>
-#### 2.1 Development of the business portfolio
-
-Test the correlation between As Is and Plan data in order to test how exact the planning is. Correlation is a measure of linear relationship between two variables. 
-
-```{r}
-cor(RedEtelAsIs , RedEtelPlan)
-```
-
-****************************
-<div id='id-section2.3'/>
-#### 2.3 Time series analysis
-
-****************************
-<div id='id-section2.3.1'/>
-#### 2.3.1 "stl" function
-
-The time series can be analysed using the stl function in order to seperate the trend, seasonality and remainder (remaining coincidential) components from one another.
-
-```{r}
-RedEtelAsIs_stl <- stl(RedEtelAsIs , s.window=5)
-```
-
-
-```{r}
-
-plot(RedEtelAsIs_stl, col="black", main="RedEtelAsIs_stl")
-RedEtelAsIs_stl
-
-mywait()
-
-par(mfrow=c(3,2))
-
-plot(RedEtelAsIs_stl$time.series[,"trend"], col="purple")
-
-mywait()
-```
-
-****************************
-<div id='id-section2.3.2'/>
-#### 2.3.2 Modification of the seasonal componant to a monthly base
-
-The modification of the seasonlity component can also be changed into a monthly view. It only makes sense to do this if the seasonality componant as the trend looks almost identical and the remainder is then randomly spread. 
-
-```{r}
-
-monthplot(RedEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
-
-mywait()
-```
-
-****************************
-<div id='id-section3'/>
-#### 3 Correlation of different external indicators
-
-****************************
-<div id='id-section3.1'/>
-#### 3.1 Definition of the indicators and their correlation with the basic data
-
-The following indicators are to be tested:
-
-1   Monthly Change in Export Price Index (CEPI)
-2 	Monthly Satisfaction Index (SI) government based data
-3 	Average monthly temperatures in Chulwalar
-4 	Monthly births in Chulwalar
-5 	Monthly Satisfaction Index (SI) external index 
-6 	Yearly Exports from Urbano
-7 	Yearly number of Globalisation Party members in Chulwalar
-8 	Monthly Average Export Price Index for Chulwalar
-9 	Monthly Producer Price Index (PPI) for Etel in Chulwalar
-10 	National Holidays
-11 	Chulwalar Index (Total value of all companies in Chulwalar)
-12	Monthly Inflation rate in Chulwalar
-13	Proposed spending for National Holidays
-14    Influence of National Holiday
-
-The indicators will be converted into individual  vectors and subsequently converted into time series. The correlation of the indicators will then be tested against the As Is exports for Chulwalar. 
-
-Monthly Change in Export Price Index (CEPI)
-
-```{r}
-CEPIVector <- c(ImportedIndicators[2:13,2],ImportedIndicators[2:13,3],ImportedIndicators[2:13,4],ImportedIndicators[2:13,5],ImportedIndicators[2:13,6],ImportedIndicators[2:13,7])
-CEPI <- ts(CEPIVector , start=c(2008,1), end=c(2013,12), frequency=12)
-plot(CEPI, main="CEPI")
-
-
-cor(RedEtelAsIs , CEPI)
-
-mywait()
-```
-****************************
-<div id='id-section19'/>
-#### Conclusion and Summary
-
-****************************
-<div id='id-section20'/>
-#### Acknowledgements
-
-Planning and forecasting in a volatile setting: the Chulwalar case v0.8alpha        
-
-Contributing authors:
-<ul>
-<li>Amy Wheeler</li>
-<li>Nina Weitkamp</li>
-<li>Patrick Berlekamp</li>
-<li>Johannes Brauer</li>
-<li>Andreas Faatz</li>
-<li>Hans-Ulrich Holst</li>
-</ul>
-                                                                             
-Designed and coded at Hochschule Osnabrück, Germany              
-Contact: faatz@wi.hs-osnabrueck.de                     
-
-Thanks to: Rob Hyndman for all the lovely forecasting libraries in R                                                                                                    
