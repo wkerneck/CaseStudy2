@@ -1,6 +1,6 @@
 ---
 title: "2016-0509 MSDS 6304-401 Case Study 2"
-author: "Claire Chu, Chris Woodard, Jessica Wheeler, Bill Kerneckel"
+author: "Nathan Chris Woodard, Jessica Wheeler, Bill Kerneckel"
 date: "July 7, 2016"
 output:
   html_document:
@@ -27,17 +27,20 @@ The Prime Minister of Chulwalar has asked us to help him in forecasting the
 exports. In order to do this we have been given as is data and plan data as well
 as a list of indicators which may affect exports. Our job is to find out the best
 way to forecast Chulwalar's exports in 2014 based on data collected before this year
-- thus to make any statistical model we introduce credible. 
 
-****************************
+<strong>Assignment</strong>
 
-#### Setting your working directory
+Choose one of the flowers from the data provided and complete the following analysis:
 
-In order for the analysis of thedatasets you must set your working directory to the following:
+- Section the code into modules for importing data, cleaning/modifying data, exploring data, analyzing data
 
-```{r}
-setwd("/Users/wkerneck/desktop/CaseStudy2/")
-```
+- Add interpretation
+
+- Determine which model is best
+
+- Give a conclusion of your analysis as far as forecasting exports for Chulwalar
+
+- For this project, we will be forecasting the "RedEtel" flower exports for Chulwalar. 
 
 ****************************
 
@@ -61,8 +64,15 @@ setwd("/Users/wkerneck/desktop/CaseStudy2/")
 - 20.0  [Acknowledgements](#id-section20) 
 
 ****************************
-<div id='id-section1'/>
-####  1. Preperation, import and convert data
+
+
+#### Preliminary Steps
+
+In order for the analysis of the three datasets you must set your working directory to the following:
+
+```{r}
+setwd("/Users/wkerneck/desktop/CaseStudy2/")
+```
 
 The libraries listed below must be installed in order for the functions outlined in the steps below to execute. Load 'fpp' package in order to obtain the forecasting functions. Load 'tcltk' for pause function.
 
@@ -82,8 +92,8 @@ cat("Success: All libaries downloaded")
 ```
 
 
-
 ****************************
+
 <div id='id-section1.1'/>
 ####  1.1 Import the exports data and the indicators
 
@@ -112,80 +122,26 @@ head(ImportedIndicators)
 In order to be able to work with the partial data sets later, these need to be split into individual vectors and converted into times series.
 
 ```{r}
-TotalAsIsVector <- c(ImportedAsIsData [2:13,2],ImportedAsIsData [2:13,3],ImportedAsIsData [2:13,4],ImportedAsIsData [2:13,5],ImportedAsIsData [2:13,6],ImportedAsIsData [2:13,7])
-
-EfakAsIsVector <- c(ImportedAsIsData [16:27,2],ImportedAsIsData [16:27,3],ImportedAsIsData [16:27,4],ImportedAsIsData [16:27,5],ImportedAsIsData [16:27,6],ImportedAsIsData [16:27,7])
-
-WugeAsIsVector <- c(ImportedAsIsData [30:41,2],ImportedAsIsData [30:41,3],ImportedAsIsData [30:41,4],ImportedAsIsData [30:41,5],ImportedAsIsData [30:41,6],ImportedAsIsData [30:41,7])
-
-TotalEtelAsIsVector <- c(ImportedAsIsData [44:55,2],ImportedAsIsData [44:55,3],ImportedAsIsData [44:55,4],ImportedAsIsData [44:55,5],ImportedAsIsData [44:55,6],ImportedAsIsData [44:55,7])
-
-BlueEtelAsIsVector <- c(ImportedAsIsData [58:69,2],ImportedAsIsData [58:69,3],ImportedAsIsData [58:69,4],ImportedAsIsData [58:69,5],ImportedAsIsData [58:69,6],ImportedAsIsData [58:69,7])
-
 RedEtelAsIsVector <- c(ImportedAsIsData [72:83,2],ImportedAsIsData [72:83,3],ImportedAsIsData [72:83,4],ImportedAsIsData [72:83,5],ImportedAsIsData [72:83,6],ImportedAsIsData [72:83,7])
-
-YearAsIsVector <- c(ImportedAsIsData [86,2],ImportedAsIsData [86,3],ImportedAsIsData [86,4],ImportedAsIsData [86,5],ImportedAsIsData [86,6],ImportedAsIsData [86,7])
-
-TotalAsIsVector_2014 <- c(ImportedAsIsData[2:13,8])
-
-PlanVector <- c(ImportedPlanData[2:13,2],ImportedPlanData[2:13,3],ImportedPlanData[2:13,4],ImportedPlanData[2:13,5],ImportedPlanData[2:13,6],ImportedPlanData[2:13,7])
-
-EfakPlanVector <- c(ImportedPlanData[16:27,2],ImportedPlanData[16:27,3],ImportedPlanData[16:27,4],ImportedPlanData[16:27,5],ImportedPlanData[16:27,6],ImportedPlanData[16:27,7])
-
-WugePlanVector <- c(ImportedPlanData[30:41,2],ImportedPlanData[30:41,3],ImportedPlanData[30:41,4],ImportedPlanData[30:41,5],ImportedPlanData[30:41,6],ImportedPlanData[30:41,7])
-
-TotalEtelPlanVector <- c(ImportedPlanData[44:55,2],ImportedPlanData[44:55,3],ImportedPlanData[44:55,4],ImportedPlanData[44:55,5],ImportedPlanData[44:55,6],ImportedPlanData[44:55,7])
-
-BlueEtelPlanVector <- c(ImportedPlanData[58:69,2],ImportedPlanData[58:69,3],ImportedPlanData[58:69,4],ImportedPlanData[58:69,5],ImportedPlanData[58:69,6],ImportedPlanData[58:69,7])
-
 RedEtelPlanVector <- c(ImportedPlanData[72:83,2],ImportedPlanData[72:83,3],ImportedPlanData[72:83,4],ImportedPlanData[72:83,5],ImportedPlanData[72:83,6],ImportedPlanData[72:83,7])
-
-YearPlanVector <- c(ImportedPlanData[86,2],ImportedPlanData[86,3],ImportedPlanData[86,4],ImportedPlanData[86,5],ImportedPlanData[86,6],ImportedPlanData[86,7])
-PlanVector_2014 <- c(ImportedPlanData[2:13,8])
 ```
 
 The data is saved as a vector and needs to be converted into a time series.
 
 ```{r}
-TotalAsIs<- ts(TotalAsIsVector , start=c(2008,1), end=c(2013,12), frequency=12)
-EfakAsIs <- ts(EfakAsIsVector , start=c(2008,1), end=c(2013,12), frequency=12)
-WugeAsIs <- ts(WugeAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
-TotalEtelAsIs<- ts(TotalEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
-BlueEtelAsIs <- ts(BlueEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
-RedEtelAsIs <- ts(RedEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
-YearAsIs <- ts(YearAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
-TotalAsIs_2014 <- ts(TotalAsIsVector_2014, start=c(2014,1), end=c(2014,12), frequency=12)
 
-TotalPlan <- ts(PlanVector , start=c(2008,1), end=c(2013,12), frequency=12)
-EfakPlan <- ts(EfakPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
-WugePlan <- ts(WugePlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
-TotalEtelPlan <- ts(TotalEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
-BlueEtelPlan <- ts(BlueEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
+RedEtelAsIs <- ts(RedEtelAsIsVector, start=c(2008,1), end=c(2013,12), frequency=12)
 RedEtelPlan <- ts(RedEtelPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
-YearPlan <- ts(YearPlanVector, start=c(2008,1), end=c(2013,12), frequency=12)
-TotalPlan_2014 <- ts(PlanVector_2014, start=c(2014,1), end=c(2014,12), frequency=12)
+
 ```
 
 Call up the time series to check everything has worked.
 
 ```{R}
-TotalAsIs
-EfakAsIs
-WugeAsIs
-TotalEtelAsIs
-BlueEtelAsIs 
-RedEtelAsIs 
-YearAsIs
-TotalAsIs_2014
 
-TotalPlan
-EfakPlan
-WugePlan 
-TotalEtelPlan
-BlueEtelPlan
+RedEtelAsIs 
 RedEtelPlan
-YearPlan
-TotalPlan_2014
+
 ```
 ****************************
 <div id='id-section2.0'/>
@@ -196,24 +152,9 @@ TotalPlan_2014
 Due to the different scales, it makes sense to plot each graph individually instead of plotting them all on one set of axes. 
 
 ```{r}
-par(mfrow=c(3,2))
-
-plot(TotalAsIs, col="black", main="TotalAsIs")
-plot(EfakAsIs , col="red",main="EfakAsIs")
-plot(WugeAsIs, col="blue", main="WugeAsIs")
-plot(TotalEtelAsIs, col="green",main="TotalEtelAsIs")
-plot(BlueEtelAsIs, col="orange", main="BlueEtelAsIs")
-plot(RedEtelAsIs, col="purple", main="RedEtelAsIs")
-
-mywait()
-mywait()
-
-plot(TotalPlan , col="black", main="TotalPlan")
-plot(EfakPlan , col="red",main="EfakPlan")
-plot(WugePlan, col="blue", main="WugePlan")
-plot(TotalEtelPlan, col="green",main="TotalEtelPlan")
-plot(BlueEtelPlan, col="orange", main="BlueEtelPlan")
-plot(RedEtelPlan, col="purple", main="RedEtelPlan")
+par(mfrow=c(2,1))
+plot(RedEtelAsIs, col="red", main="RedEtelAsIs")
+plot(RedEtelPlan, col="red", main="RedEtelPlan")
 
 mywait()
 ```
@@ -225,25 +166,7 @@ mywait()
 Test the correlation between As Is and Plan data in order to test how exact the planning is. Correlation is a measure of linear relationship between two variables. 
 
 ```{r}
-cor(TotalAsIs, TotalPlan )
-cor(EfakAsIs , EfakPlan)
-cor(WugeAsIs, WugePlan)
-cor(TotalEtelAsIs, TotalEtelPlan)
-cor(BlueEtelAsIs , BlueEtelPlan)
 cor(RedEtelAsIs , RedEtelPlan)
-cor(YearAsIs, YearPlan)
-
-mywait()
-```
-
-The results show a very high planning accuracy
-
-```{r}
-TotalAsIs_lm <- lm(TotalAsIs ~ TotalPlan , data = TotalAsIs)
-summary(TotalAsIs_lm)
-
-TotalAsIs_tslm <- tslm(TotalAsIs ~ TotalPlan )
-summary(TotalAsIs_tslm)
 ```
 
 ****************************
@@ -257,37 +180,11 @@ summary(TotalAsIs_tslm)
 The time series can be analysed using the stl function in order to seperate the trend, seasonality and remainder (remaining coincidential) components from one another.
 
 ```{r}
-TotalAsIs_stl <- stl(TotalAsIs, s.window=5)
-EfakAsIs_stl <- stl(EfakAsIs , s.window=5)
-WugeAsIs_stl <- stl(WugeAsIs, s.window=5)
-TotalEtelAsIs_stl <- stl(TotalEtelAsIs, s.window=5)
-BlueEtelAsIs_stl <- stl(BlueEtelAsIs , s.window=5)
 RedEtelAsIs_stl <- stl(RedEtelAsIs , s.window=5)
 ```
 
-Thus the individual time series can be shown graphically and tabularly. The trend of the total exports is almost linear. A relatively uniform seaonality can be seen.
 
 ```{r}
-par(mfrow=c(3,2))
-
-plot(TotalAsIs_stl, col="black", main="TotalAsIs_stl")
-TotalAsIs_stl
-```
-
-It is interesting to note that the almost linear trend is not seen in the individual segments. The individual trends run partially in opposite directions in the middle of the time scale, which causes the linear trend in the total As Is data.
-
-```{r}
-plot(EfakAsIs_stl, col="black", main="EfakAsIs_stl")
-EfakAsIs_stl
-
-plot(WugeAsIs_stl, col="black", main="WugeAsIs_stl")
-WugeAsIs_stl
-
-plot(TotalEtelAsIs_stl, col="black", main="TotalEtelAsIs_stl")
-TotalEtelAsIs_stl
-
-plot(BlueEtelAsIs_stl, col="black", main="BlueEtelAsIs_stl")
-BlueEtelAsIs_stl
 
 plot(RedEtelAsIs_stl, col="black", main="RedEtelAsIs_stl")
 RedEtelAsIs_stl
@@ -296,11 +193,6 @@ mywait()
 
 par(mfrow=c(3,2))
 
-plot(TotalAsIs_stl$time.series[,"trend"], col="black")
-plot(EfakAsIs_stl$time.series[,"trend"], col="red")
-plot(WugeAsIs_stl$time.series[,"trend"], col="blue")
-plot(TotalEtelAsIs_stl$time.series[,"trend"], col="green")
-plot(BlueEtelAsIs_stl$time.series[,"trend"], col="orange")
 plot(RedEtelAsIs_stl$time.series[,"trend"], col="purple")
 
 mywait()
@@ -313,11 +205,7 @@ mywait()
 The modification of the seasonlity component can also be changed into a monthly view. It only makes sense to do this if the seasonality componant as the trend looks almost identical and the remainder is then randomly spread. 
 
 ```{r}
-monthplot(TotalAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
-monthplot(EfakAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
-monthplot(WugeAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
-monthplot(TotalEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
-monthplot(BlueEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
+
 monthplot(RedEtelAsIs_stl$time.series[,"seasonal"], main="", ylab="Seasonal")
 
 mywait()
@@ -357,11 +245,7 @@ CEPIVector <- c(ImportedIndicators[2:13,2],ImportedIndicators[2:13,3],ImportedIn
 CEPI <- ts(CEPIVector , start=c(2008,1), end=c(2013,12), frequency=12)
 plot(CEPI, main="CEPI")
 
-cor(TotalAsIs, CEPI)
-cor(EfakAsIs , CEPI)
-cor(WugeAsIs, CEPI)
-cor(TotalEtelAsIs, CEPI)
-cor(BlueEtelAsIs , CEPI)
+
 cor(RedEtelAsIs , CEPI)
 
 mywait()
@@ -369,9 +253,6 @@ mywait()
 ****************************
 <div id='id-section19'/>
 #### Conclusion and Summary
-
-
-
 
 ****************************
 <div id='id-section20'/>
