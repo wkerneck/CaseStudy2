@@ -105,9 +105,23 @@ Choose one of the flowers from the data provided and complete the following anal
 
 ****************************
 
-#### Project File Structure
+#### Project Folder/File Structure
 
-![Project Folder Sturcture](images/projectfolderstructure.png)
+![Case Study 2 - Project Folder Sturcture](images/projectfolderstructure.png)
+
+
+
+
+****************************
+
+#### Makefiles
+
+Listed are the makefiles created for this Case Study. The makefiles are packaged R script to load, clean, and analysis the three datasets. <strong>Note:</strong> You can run the source(makefile.r) in the command line in R and all three R files (Import.r, Clean.r, Analysis.r) with load and run automatically. 
+
+- [Makefile.r](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/makefile.r)
+- [Import.r](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/import.r)
+- [Clean.r](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/clean.r)
+- [Analysis.r](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/analysis.r)
 
 ****************************
 
