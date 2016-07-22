@@ -105,6 +105,11 @@ Choose one of the flowers from the data provided and complete the following anal
 
 ****************************
 
+#### Project File Structure
+
+![Project Folder Sturcture](images/projectfolderstructure.png)
+
+****************************
 
 #### Preliminary Steps
 
