@@ -22,8 +22,10 @@ The Prime Minister of Chulwalar has asked us to help him in forecasting the
 exports. In order to do this we have been given as is data and plan data as well
 as a list of indicators which may affect exports. Our job is to find out the best
 way to forecast Chulwalar's exports in 2014 based on data collected before this year.
+<br>
+<br>
 
-<strong>Assignment</strong>
+####Assignment
 
 Choose one of the flowers from the data provided and complete the following analysis:
 
@@ -44,19 +46,42 @@ Choose one of the flowers from the data provided and complete the following anal
 * 1.0   [Preperation, import and convert data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
 * 1.1   [Import the exports data and the indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
 * 1.2   [Transformation the data into vectors and time series](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/1.md)
-
+<br><br>
 * 2.0   [Analysis of the basic data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md) 
 * 2.1   [Development of the business portfolio](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
 * 2.2   [Correlation between As Is and Plan data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
 * 2.3   [Time series analysis](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
 * 2.3.1 ["stl" function](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
 * 2.3.2 [Modification of the seasonal componant to a monthly base.](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/2.md)
-
-* 3.0 [Correlation of different external indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
-* 3.1 [Definition of the indicators and their correlation with the basic data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
-  
-* 19.0  [Conclusion and Summary.](#id-section19) 
-* 20.0  [Acknowledgements](#id-section20) 
+<br><br>
+* 3.0   [Correlation of different external indicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
+* 3.1   [Definition of the indicators and their correlation with the basic data](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
+* 3.2   [Correlation of the indicators with a time offset](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
+* 3.3   [Correlation of the indicators with each another](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/3.md)
+<br><br>
+* 4.0   [Development of forecasting models using tslm()](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)
+* 4.1   [ModelWithAlllIndicators and with each indicator individually](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)
+* 4.2.1 [ModelWithHighCorrelatingIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)      
+* 4.2.2 [ModelWithLowCorrelatingIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)                
+* 4.3   [ModelWithTrendAndSeasonalityOnly](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)  
+* 4.4   [ModelWithoutTrendAndSeasonality](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)
+* 4.5   [ModelWithEfakExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)
+* 4.6   [ModelWithWugeExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)
+* 4.7   [ModelWithTotalEtel](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md)
+<br>
+<br>
+* 5.0     [Forecasts with the models](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.1     [Shorten the time series in order to test the forecasts](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2     [Forecasting und testing the models](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.1.1 [Forecast ModelWithHighCorrelatingIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.1.2 [Forecast ModelWithLowCorrelatingIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.2   [Forecast ModelWithTrendAndSeasonalityOnly](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.3   [Forecast ModelWithEfakExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.4   [Forecast ModelWithWugeExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.5   [Forecast ModelTotalEtel](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.6   [Forecast ModelWithTotalUrbanoExport](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.7   [Forecast ModelWithNationalHolidays](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+* 5.2.8   [Forecast ModelWithInfluenceNationalHoliday](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
 
 ****************************
 
@@ -67,7 +92,7 @@ In order for the analysis of the three datasets you must set your working direct
 
 
 ```r
-setwd("/Users/wkerneck/desktop/CaseStudy2/")
+setwd("/Users/wkerneck/desktop/CaseStudy2/analysis/data")
 ```
 
 The libraries listed below must be installed in order for the functions outlined in the steps below to execute. Load 'fpp' package in order to obtain the forecasting functions. Load 'tcltk' for pause function.
