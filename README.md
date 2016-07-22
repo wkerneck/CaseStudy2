@@ -1,5 +1,5 @@
 # 2016-0509 MSDS 6304-401 Case Study 2
-Nathan Mowat; Chris Woodard, Jessica Wheeler, Bill Kerneckel  
+Nathan Mowat, Chris Woodard, Jessica Wheeler, Bill Kerneckel  
 July 7, 2016  
 
 <br>
@@ -82,6 +82,26 @@ Choose one of the flowers from the data provided and complete the following anal
 * 5.2.6   [Forecast ModelWithTotalUrbanoExport](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
 * 5.2.7   [Forecast ModelWithNationalHolidays](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
 * 5.2.8   [Forecast ModelWithInfluenceNationalHoliday](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md)
+<br>
+<br>
+* 6.0     [Forecast for 2014](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/6.md)
+<br>
+<br>
+* 7.0     [Developing forecasting models with alternative model approaches](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/7.md)
+* 7.1     [Exponential smoothing](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/7.md)
+* 7.1.1   [Simple expontential smoothing](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/7.md)
+* 7.1.2   [Holt's linear trend method](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/7.md)
+* 7.1.3   [Holt-Winter's seasonal method](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/7.md)
+* 7.1.4   [Innovations state space models for exponential smoothing](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/7.md)
+<br>
+<br>
+* 8.0     [Comparison of the models](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/8.md)
+<br>
+<br>
+* 9.0     [Summary of results](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/9.md)
+<br>
+<br>
+* 10.0    [Acknowledgements](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/10.md)
 
 ****************************
 
