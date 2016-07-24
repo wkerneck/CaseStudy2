@@ -5,20 +5,20 @@
 ### Updated July 23, 2016
 #####################################################################
 
-#Set working directory
-setwd("/Users/wkerneck/desktop/CaseStudy2/analysis/data")
+#Set the working directory
+setwd("/Users/JessicaSibal/GitHub/CaseStudy2")
 
-#File to load and clean the data:
-source("CaseStudy2/analysis/data/1.md")
+#File to load the data:
+source("/Users/JessicaSibal/GitHub/CaseStudy2/LoadingDataChulwalhar.R")
 
+#File to clean the data:
+source("/Users/JessicaSibal/GitHub/CaseStudy2/CleaningDataChulwalhar.R")
 
-#Analysis files:
-source("CaseStudy2/analysis/data/2.md")
-source("CaseStudy2/analysis/data/3.md")
-source("CaseStudy2/analysis/data/4.md")
-source("CaseStudy2/analysis/data/5.md")
-source("CaseStudy2/analysis/data/6.md")
-source("CaseStudy2/analysis/data/7.md")
-source("CaseStudy2/analysis/data/8.md")
-source("CaseStudy2/analysis/data/9.md")
-source("CaseStudy2/analysis/data/10.md")
+#Analysis of Basic Data
+source("/Users/JessicaSibal/GitHub/CaseStudy2/AnalysisBasicChulwalhar.R")
+
+#Module3- Indicator Correlations
+source("/Users/JessicaSibal/GitHub/CaseStudy2/Module3Chulwalhar.R")
+
+#Modules 4 - 7- Models and Forecasting and Smoothing
+source("/Users/JessicaSibal/GitHub/CaseStudy2/ForecastingModelsR.R")
