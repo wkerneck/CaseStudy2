@@ -1,1 +1,1 @@
-This is the data and files for Case Study 2
+Readme file for data folder
