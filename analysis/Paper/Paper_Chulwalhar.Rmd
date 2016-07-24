@@ -1,0 +1,12 @@
+---
+title: "Case Study: Chulwalhar Red Etel Export Forecasting"
+author: "Bill Kerneckel, Nathan Mowat, Chris Woodard, Jessica Wheeler"
+date: "July 23, 2016"
+output: html_document
+keep_md: true
+---
+
+```{r}
+#Import data for the case study
+source("MasterMakefile_RedEtel.R")
+```
