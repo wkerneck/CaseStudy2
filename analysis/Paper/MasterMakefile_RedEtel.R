@@ -6,7 +6,7 @@
 #####################################################################
 
 #Set working directory
-setwd("https://github.com/wkerneck/CaseStudy2/tree/master/analysis/data")
+setwd("/Users/wkerneck/desktop/CaseStudy2/analysis/data")
 
 #File to load and clean the data:
 source("CaseStudy2/analysis/data/1.md")
