@@ -74,12 +74,11 @@ Choose one of the flowers from the data provided and complete the following anal
 * 5.2.1.1 [Forecast ModelWithHighCorrelatingIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.1.1)
 * 5.2.1.2 [Forecast ModelWithLowCorrelatingIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.1.2)
 * 5.2.2   [Forecast ModelWithTrendAndSeasonalityOnly](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.2)
-* 5.2.3   [Forecast ModelWithEfakExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.3)
-* 5.2.4   [Forecast ModelWithWugeExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.4)
-* 5.2.5   [Forecast ModelTotalEtel](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.5)
-* 5.2.6   [Forecast ModelWithTotalUrbanoExport](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.6)
-* 5.2.7   [Forecast ModelWithNationalHolidays](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.7)
-* 5.2.8   [Forecast ModelWithInfluenceNationalHoliday](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.8)
+* 5.2.3   [Forecast ModelWithRedEtelExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.3)
+* 5.2.4   [Forecast ModelTotalRedEtel](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.4)
+* 5.2.5   [Forecast ModelWithTotalUrbanoExport](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.5)
+* 5.2.6   [Forecast ModelWithNationalHolidays](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.6)
+* 5.2.7   [Forecast ModelWithInfluenceNationalHoliday](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5.2.7)
 <br>
 <br>
 * 6.0     [Forecast for 2014](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/6.md#id-section6)
