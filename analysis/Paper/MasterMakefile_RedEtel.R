@@ -9,16 +9,16 @@
 setwd("/Users/wkerneck/GitHub/CaseStudy2")
 
 #File to load the data:
-source("/Users/wkerneck/GitHub/CaseStudy2/LoadingDataChulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/analysis/data/LoadingDataChulwalhar.R")
 
 #File to clean the data:
-source("/Users/wkerneck/GitHub/CaseStudy2/CleaningDataChulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/analysis/data/CleaningDataChulwalhar.R")
 
 #Analysis of Basic Data
-source("/Users/wkerneck/GitHub/CaseStudy2/AnalysisBasicChulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/analysis/data/AnalysisBasicChulwalhar.R")
 
 #Module3- Indicator Correlations
-source("/Users/wkerneck/GitHub/CaseStudy2/Module3Chulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/analysis/data/Module3Chulwalhar.R")
 
 #Modules 4 - 7- Models and Forecasting and Smoothing
-source("/Users/wkerneck/GitHub/CaseStudy2/ForecastingModelsR.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/analysis/data/ForecastingModelsR.R")
