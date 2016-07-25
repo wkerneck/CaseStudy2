@@ -108,9 +108,9 @@ Choose one of the flowers from the data provided and complete the following anal
 
 ****************************
 
-#### Makefiles
+#### Makefile
 
-Listed is the makefiles created for this Case Study. The makefile is q packaged R script to load, clean, and analysis the three datasets. 
+Listed is the makefile created for this Case Study. The makefile is a packaged R script to load, clean, and analyze the three datasets. 
 
 - [Makefile.r](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/Paper/MasterMakefile_RedEtel.R)
 
