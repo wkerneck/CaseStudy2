@@ -65,9 +65,7 @@ Choose one of the flowers from the data provided and complete the following anal
 * 4.2.2 [ModelWithLowCorrelatingIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md#id-section4.2.2)                
 * 4.3   [ModelWithTrendAndSeasonalityOnly](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md#id-section4.3)  
 * 4.4   [ModelWithoutTrendAndSeasonality](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md#id-section4.4)
-* 4.5   [ModelWithEfakExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md#id-section4.5)
-* 4.6   [ModelWithWugeExportsIndicators](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md#id-section4.6)
-* 4.7   [ModelWithTotalEtel](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md#id-section4.7)
+* 4.5   [ModelWithTotalEtel](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/4.md#id-section4.5)
 <br>
 <br>
 * 5.0     [Forecasts with the models](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/5.md#id-section5)
