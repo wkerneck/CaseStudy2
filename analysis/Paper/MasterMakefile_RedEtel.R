@@ -6,19 +6,19 @@
 #####################################################################
 
 #Set the working directory
-setwd("/Users/JessicaSibal/GitHub/CaseStudy2")
+setwd("/Users/wkerneck/GitHub/CaseStudy2")
 
 #File to load the data:
-source("/Users/JessicaSibal/GitHub/CaseStudy2/LoadingDataChulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/LoadingDataChulwalhar.R")
 
 #File to clean the data:
-source("/Users/JessicaSibal/GitHub/CaseStudy2/CleaningDataChulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/CleaningDataChulwalhar.R")
 
 #Analysis of Basic Data
-source("/Users/JessicaSibal/GitHub/CaseStudy2/AnalysisBasicChulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/AnalysisBasicChulwalhar.R")
 
 #Module3- Indicator Correlations
-source("/Users/JessicaSibal/GitHub/CaseStudy2/Module3Chulwalhar.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/Module3Chulwalhar.R")
 
 #Modules 4 - 7- Models and Forecasting and Smoothing
-source("/Users/JessicaSibal/GitHub/CaseStudy2/ForecastingModelsR.R")
+source("/Users/wkerneck/GitHub/CaseStudy2/ForecastingModelsR.R")
