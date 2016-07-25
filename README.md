@@ -93,9 +93,6 @@ Choose one of the flowers from the data provided and complete the following anal
 * 7.1.4   [Innovations state space models for exponential smoothing](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/7.md#id-section7.1.4)
 <br>
 <br>
-* 8.0     [Comparison of the models](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/8.md)
-<br>
-<br>
 * 9.0     [Summary of results](https://github.com/wkerneck/CaseStudy2/blob/master/analysis/data/9.md)
 <br>
 <br>
